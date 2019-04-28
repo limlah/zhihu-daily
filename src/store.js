@@ -11,7 +11,21 @@ export default new Vuex.Store({
     before_stories: [], // 今天之前的新闻
   },
   mutations: {
-
+    set_top_stories ( state, data) {
+      state.top_stories = data
+    },
+    set_top_stories ( state, data) {
+      state.today_stories = data
+    },
+    set_date ( state, data) {
+      state.date = data
+    },
+    add_before_stories ( state, data ) {
+      state.before_stories.push(data)
+    },
+    clear_before_stories ( state ) {
+      state.before_stories = []
+    }
   },
   actions: {
 
