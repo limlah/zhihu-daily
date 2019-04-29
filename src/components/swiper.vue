@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <swiper :options="swiperOption">
-      <swiper-slide>I'm Slide 1</swiper-slide>
-      <swiper-slide>I'm Slide 2</swiper-slide>
-      <swiper-slide>I'm Slide 3</swiper-slide>
-      <swiper-slide>I'm Slide 4</swiper-slide>
-      <swiper-slide>I'm Slide 5</swiper-slide>
-      <swiper-slide>I'm Slide 6</swiper-slide>
-      <swiper-slide>I'm Slide 7</swiper-slide>
+    <swiper :options="swiperOption" >
+      <swiper-slide 
+        v-for="(story, index) in top_stories" 
+        :key="index">
+        <img :src="story.image">
+        <div class="mask"></div>
+        <h3>{{story.title}}</h3>
+      </swiper-slide>
 
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { mapState } from 'vuex'
 export default {
   name: "carrousel",
   components: {
@@ -35,6 +36,9 @@ export default {
         loop: true
       }
     };
+  },
+  computed: {
+    ...mapState(['top_stories'])
   }
 };
 </script>

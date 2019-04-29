@@ -26,6 +26,7 @@ module.exports = {
       '/api': {
         target: 'https://news-at.zhihu.com',
         changeOrigin: true,
+        ws: true,
         pathRewrite: {
           '^/api': '/api'
         }

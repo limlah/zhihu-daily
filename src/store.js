@@ -35,7 +35,7 @@ export default new Vuex.Store({
           commit('set_top_stories', res.data.top_stories)
           commit('set_today_stories', res.data.stories)
           commit('set_date', res.data.date)
-        }
+        } else {console.log('访问失败')}
       })
     },
     get_before_stories ({ state, commit }) {
