@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <swiper :options="swiperOption" >
+    <!-- 
+    设置 v-if="top_stories.length > 0"  
+    防止 vue-awesome-swiper插件使用 v-for渲染数据时，设置loop:true无效
+    -->
+    <swiper :options="swiperOption"  v-if="top_stories.length > 0">
       <swiper-slide 
         v-for="(story, index) in top_stories" 
         :key="index">
@@ -33,7 +37,8 @@ export default {
           delay: 2000,
           disableOnInteraction: false
         },
-        loop: true
+        loop: true,
+        slidesPerView: 1
       }
     };
   },
