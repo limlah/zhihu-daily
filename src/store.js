@@ -48,7 +48,7 @@ export default new Vuex.Store({
 
       return axios.get('/api/4/news/before/' + date).then( res => {
         if ( res.status === 200 ) {
-          commit('add_stories', res.data)
+          commit('add_before_stories', res.data)
         }
       })
     }
