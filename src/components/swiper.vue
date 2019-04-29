@@ -5,7 +5,9 @@
     防止 vue-awesome-swiper插件使用 v-for渲染数据时，设置loop:true无效
     -->
     <swiper :options="swiperOption"  v-if="top_stories.length > 0">
+      <!--在swiper-slide上绑click事件 添加 native-->
       <swiper-slide 
+        @click.native="get_news_detail(story.id)"
         v-for="(story, index) in top_stories" 
         :key="index">
         <img :src="story.image">
@@ -44,6 +46,11 @@ export default {
   },
   computed: {
     ...mapState(['top_stories'])
+  },
+  methods: {
+    get_news_detail( id ) {
+      this.$router.push({path: `article/${id}`})
+    }
   }
 };
 </script>
