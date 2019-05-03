@@ -17,7 +17,8 @@ module.exports = {
     modules: false// 启用 CSS modules for all css / pre-processor files.
   },
   devServer: {// 环境配置
-    host: 'localhost',
+    // host: 'localhost',
+    host: '192.168.31.43',
     port: 8080,
     https: false,
     hotOnly: false,

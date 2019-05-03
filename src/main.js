@@ -7,6 +7,12 @@ import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
+// 初始化样式
+import 'normalize.css'
+
+// 引入icon
+import './assets/icon/iconfont.css'
+
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
