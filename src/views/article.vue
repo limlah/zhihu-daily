@@ -3,10 +3,12 @@
     <div class="icon" >
       <span class="iconfont icon-fanhui" @click="back"></span>
     </div>
-    <img :src="story.image">
-    <div class="mask"></div>
-    <h3 class="title">{{story.title}}</h3>
-    <div class="container" v-html="story.body"></div>
+    <div class="item">
+      <img :src="story.image">
+      <div class="mask"></div>
+      <h3 class="title">{{story.title}}</h3>
+      <div class="container" v-html="story.body"></div>
+    </div>
   </div>
 </template>
 
@@ -37,15 +39,24 @@ export default {
 </script>
 
 <style  scoped>
-.icon {
-  position: fixed;
-  background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.5) 90%);
-  width: 100vw;
-  height: 8vh;
-  z-index: 1;
+
+@media screen and (min-width: 650px) {
+  .item {
+    width: 650px;
+    left: 50%;
+    transform: translate(-50%)
+  }
 }
 
-.iconfont {
+.icon {
+  position: fixed;
+  background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.5) 95%);
+  width: 100vw;
+  height: 8vh;
+  z-index: 6;
+}
+
+.icon-fanhui {
   display: inline-block;
   color: #fff;
   font-size: 4vh;
@@ -53,11 +64,11 @@ export default {
   padding-left: 2vw;
 }
 
-.article {
+.item {
   position: relative;
   height: 55vh;
 }
-.article .mask {
+.item .mask {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -66,14 +77,14 @@ export default {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
   z-index: 0;
 }
-.article .title {
+.item .title {
   position: absolute;
   width: 60%;
   bottom: 20%;
   right: 5%;
   color: #fff;
 }
-.article img {
+.item img {
   width: 100%;
   height: 100%;
 }

@@ -7,8 +7,4 @@
 </template>
 
 <style lang="less">
-#app {
-  max-width: 650px;
-  margin: 0 auto;
-}
 </style>

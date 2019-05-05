@@ -1,16 +1,19 @@
 <template>
   <div class="container">
-    <header class="icon">
+     <header>
       <span class="iconfont icon-caidan"></span>
     </header>
     <aside></aside>
     <main>
-      <mescroll-vue ref="mescroll" :down="mescrollDown" :up="mescrollUp" @init="mescrollInit">
+      <mescroll-vue ref="mescroll"
+        :down="mescrollDown" 
+        :up="mescrollUp" 
+        @init="mescrollInit">
         <swiper></swiper>
         <list></list>
       </mescroll-vue>
     </main>
-  </div>
+   </div>
 </template>
 
 <script>
@@ -23,7 +26,7 @@ export default {
   components: {
     swiper,
     list,
-    MescrollVue
+    MescrollVue,
   },
   created() {
     this.get_news_latest();
@@ -35,7 +38,11 @@ export default {
         callback: this.downCallbakc
       },
       mescrollUp: {
-        callback: this.upCallback
+        callback: this.upCallback,
+        toTop: {
+          html: 'Top',
+          offset: 1000
+        }
       }
     };
   },
@@ -88,18 +95,23 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
+@media screen and (min-width: 650px) {
+  main {
+    width: 650px;
+    left: 50%;
+    transform: translate(-50%)
+  }
+}
+
 .container {
-  .icon {
+  header {
     position: fixed;
-    background-image: linear-gradient(
-      0deg,
-      transparent,
-      rgba(0, 0, 0, 0.6) 95%
-    );
+    background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.5) 95%);
     width: 100vw;
     height: 8vh;
-    z-index: 1;
-    .iconfont {
+    z-index: 4;
+    .icon-caidan {
       display: inline-block;
       color: #fff;
       font-size: 4vh;
@@ -117,5 +129,6 @@ export default {
       height: 100vh;
     }
   }
+  
 }
 </style>

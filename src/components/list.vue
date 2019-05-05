@@ -45,6 +45,7 @@ export default {
 
 <style lang="less" scoped>
 .list {
+  cursor: pointer;
   display: block;
   margin: 0 3vw;
   .item {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="swiper">
     <!-- 
     设置 v-if="top_stories.length > 0"  
     防止 vue-awesome-swiper插件使用 v-for渲染数据时，设置loop:true无效
@@ -58,7 +58,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.swiper-container {
+.swiper {
+  cursor: pointer;
+  .swiper-container {
   position: relative;
   height: 55vh;
   .mask {
@@ -68,7 +70,6 @@ export default {
     left: 0;
     top: 0;
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-    
   }
   .title {
     position: absolute;
@@ -81,5 +82,6 @@ export default {
     width: 100%;
     height: 100%;
   }
+}
 }
 </style>
