@@ -1,24 +1,48 @@
+const path = require('path')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
+
 module.exports = {
-  // 部署应用时的根路径(默认'/'),也可用相对路径(存在使用限制)
+  /* 
+  如果打算将项目部署到 https://<USERNAME>.github.io/<REPO>/ 上,
+  可将 publicPath 设为 "/<REPO>/" 。
+  publicPath 配置的路径就是“/你的项目名称/”
+ */
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/'
+    ? '/zhihu-daily/'
     : '/',
-
-  outputDir: 'dist',// 运行时生成的生产环境构建文件的目录(默认''dist''，构建之前会被清除)
-  assetsDir: '',//放置生成的静态资源(s、css、img、fonts)的(相对于 outputDir 的)目录(默认'')
-  indexPath: 'index.html',//指定生成的 index.html 的输出路径(相对于 outputDir)也可以是一个绝对路径。
-
-  lintOnSave: true,// 是否在保存的时候检查
-  productionSourceMap: true,// 生产环境是否生成 sourceMap 文件
+  //当运行 npm run build 时生成的生产环境构建文件的目录
+  outputDir: 'dist',
+  // 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录 
+  // 默认为 ''
+  assetsDir: '',
+  productionSourceMap: false,
+  filenameHashing: true,
+  pages: {
+    index: {
+      // page 的入口
+      entry: "src/main.js",
+      // 模板来源
+      template: "public/index.html", // 这里用来区分加载那个 html
+      // 在 dist/index.html 的输出
+      filename: "index.html",
+      // 在这个页面中包含的块，默认情况下会包含
+      // 提取出来的通用 chunk 和 vendor chunk。
+      chunks: ["chunk-vendors", "chunk-common", "index"]
+    }
+  },
+  // CSS 相关选项
   css: {
-    extract: true,// 是否使用css分离插件 ExtractTextPlugin
-    sourceMap: false,// 开启 CSS source maps
-    loaderOptions: {},// css预设器配置项
-    modules: false// 启用 CSS modules for all css / pre-processor files.
+    extract: true,
+    sourceMap: false,
+    loaderOptions: {}, // 为所有的 CSS 及其预处理文件开启 CSS Modules。
+    modules: false
   },
   devServer: {// 环境配置
-    // host: 'localhost',
-    host: '192.168.31.43',
+    host: 'localhost',
     port: 8080,
     https: false,
     hotOnly: false,
@@ -34,7 +58,8 @@ module.exports = {
       }
     }
   },
-  pluginOptions: {// 第三方插件配置
+  // 第三方插件配置
+  pluginOptions: {
     // ...
   }
 };
