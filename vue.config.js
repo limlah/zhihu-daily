@@ -1,9 +1,3 @@
-const path = require('path')
-
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
-
 
 module.exports = {
   /* 
@@ -11,14 +5,12 @@ module.exports = {
   可将 publicPath 设为 "/<REPO>/" 。
   publicPath 配置的路径就是“/你的项目名称/”
  */
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/zhihu-daily/'
-    : '/',
+  publicPath: './',
   //当运行 npm run build 时生成的生产环境构建文件的目录
   outputDir: 'dist',
   // 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录 
   // 默认为 ''
-  assetsDir: '',
+  assetsDir: './static',
   productionSourceMap: false,
   filenameHashing: true,
   pages: {
