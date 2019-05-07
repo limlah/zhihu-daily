@@ -1,7 +1,7 @@
 module.exports = {
   // 部署应用时的根路径(默认'/'),也可用相对路径(存在使用限制)
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/production-sub-path/'
+    ? '/zhihu-daily/'
     : '/',
 
   outputDir: 'dist',// 运行时生成的生产环境构建文件的目录(默认''dist''，构建之前会被清除)
@@ -17,11 +17,9 @@ module.exports = {
     modules: false// 启用 CSS modules for all css / pre-processor files.
   },
   devServer: {// 环境配置
-    // host: 'localhost',
-    host: '192.168.31.43',
+    host: 'localhost',
+    // host: '192.168.31.43',
     port: 8080,
-    https: false,
-    hotOnly: false,
     open: true, //配置自动启动浏览器
     proxy: {
       '/api': {
